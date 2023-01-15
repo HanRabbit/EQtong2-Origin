@@ -12,6 +12,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -111,11 +112,21 @@ public class MainActivity extends AppCompatActivity {
                     intent = new Intent(MainActivity.this, MineActivity.class);
                     startActivity(intent);
                     break;
+                case "login":
+                    intent = new Intent(MainActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    break;
             }
         }
         @JavascriptInterface
         public void setNavColor(int r, int g, int b) {
             getWindow().setNavigationBarColor(Color.rgb(r, g, b));
+        }
+        @JavascriptInterface
+        public void downloadAPK(String url) {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+//            Log.i("dev_han", url);
+            startActivity(intent);
         }
     }
 

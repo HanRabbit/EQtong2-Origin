@@ -130,14 +130,14 @@ select1.onclick = () => {
     }, 100)
 }
 
-setTimeout(() => {
-    const helloBoxBtn = document.getElementById('helloBoxBtn')
-    helloBoxBtn.onclick = () => {
-        setTimeout(() => {
-            window.open('https://news.sina.cn/zt_d/yiqing0121', 'thisact2')
-        }, 400)
-    }
-}, 600)
+// setTimeout(() => {
+//     const helloBoxBtn = document.getElementById('helloBoxBtn')
+//     helloBoxBtn.onclick = () => {
+//         setTimeout(() => {
+//             window.open('https://news.sina.cn/zt_d/yiqing0121', 'thisact2')
+//         }, 400)
+//     }
+// }, 600)
 
 window.onload = () => {
     getTime()

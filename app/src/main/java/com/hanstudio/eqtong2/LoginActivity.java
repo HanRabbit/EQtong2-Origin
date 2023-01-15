@@ -5,12 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,28 +17,25 @@ import android.webkit.JavascriptInterface;
 import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
-import android.widget.TextView;
 
-import java.net.URL;
-
-public class MineActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mine);
+        setContentView(R.layout.activity_login);
 
-        WebView wViewMine = (WebView) findViewById(R.id.wViewMine);
-        wViewMine.getSettings().setJavaScriptEnabled(true);
-        wViewMine.requestFocus();
-        wViewMine.loadUrl("file:///android_asset/mineIndex/aboutIndex/index.html");
-        wViewMine.addJavascriptInterface(new androidDataM(), "androidDataM");
+        WebView wViewLogin = (WebView) findViewById(R.id.wViewLogin);
+        wViewLogin.getSettings().setJavaScriptEnabled(true);
+        wViewLogin.requestFocus();
+        wViewLogin.loadUrl("file:///android_asset/mineIndex/loginIndex/index.html");
+        wViewLogin.addJavascriptInterface(new androidDataM(), "androidDataM");
 
-        wViewMine.setWebChromeClient(new WebChromeClient() {
+        wViewLogin.setWebChromeClient(new WebChromeClient() {
             @Override
             public boolean onJsAlert(WebView view, String url, String message, final JsResult result) {
-                AlertDialog.Builder b = new AlertDialog.Builder(MineActivity.this);
+                AlertDialog.Builder b = new AlertDialog.Builder(LoginActivity.this);
                 b.setTitle("Alert");
                 b.setMessage(message);
                 b.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
@@ -68,7 +62,7 @@ public class MineActivity extends AppCompatActivity {
             Intent intent;
             switch (str) {
                 case "exit":
-                    MineActivity.this.finish();
+                    LoginActivity.this.finish();
                     break;
             }
 //            Log.i("dev_han", str);
